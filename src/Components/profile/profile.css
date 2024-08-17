@@ -1,0 +1,22 @@
+/* .profile-page{
+    display: flex;
+    width:100vw;
+    flex-direction: column;
+}
+
+.profile{
+    display:flex;
+    flex-direction: column;
+    gap:1vw;
+    width:30%;
+    margin-left: 40%;
+    margin-top: 5%;    
+}
+
+.logout{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-top: 1vw;
+    font-size: 0.5vw;
+   } */
