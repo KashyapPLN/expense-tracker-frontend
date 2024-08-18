@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import './profile.css';
-import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
-    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         emailId: localStorage.getItem("emailId"),
         name: '',
@@ -36,11 +35,21 @@ export default function Profile() {
                     dob: data.dob,
                     gender: data.gender
                 });
+                setLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
+                setLoading(false);
             });
     }, []);
+
+    if (loading) {
+        return (
+            <Container className="mt-4 text-center">
+                <Spinner animation="border" />
+            </Container>
+        );
+    }
 
     const handleSubmit = () => {
         if (formData.name && formData.age && formData.mobile && formData.dob && formData.gender) {

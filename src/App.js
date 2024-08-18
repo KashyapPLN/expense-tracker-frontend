@@ -6,6 +6,7 @@ import Profile from './Components/profile/Profile';
 import AddExpense from './Components/expense-components/AddExpense';
 import Expenses from './Components/expense-components/Expenses';
 import NavBar from './Components/NavBar';
+import Charts from './Components/expense-components/ExpenseCharts.js';
 
 function App() {
   const navigate = useNavigate();
@@ -18,19 +19,20 @@ function App() {
 
   return (
     <div className="App">
-      {token&& <NavBar handleLogout={handleLogout}/>}
+      {token && <NavBar handleLogout={handleLogout} />}
       <Routes>
         {/* Protected Routes */}
         {token ? (
-          
+
           <>
             <Route path='/profile' element={<Profile handleLogout={handleLogout} />} />
             <Route path='/add' element={<AddExpense />} />
             <Route path='/expenses' element={<Expenses />} />
+            <Route path='/expenses-chart' element={<Charts />} />
             <Route path='/register' element={<Navigate to="/profile" />} />
             <Route path='/login' element={<Navigate to="/profile" />} />
             <Route path='/' element={<Navigate to="/expenses" />} />
-            
+
           </>
         ) : (
           <>
@@ -42,6 +44,7 @@ function App() {
             <Route path='/profile' element={<Navigate to="/login" />} />
             <Route path='/add' element={<Navigate to="/login" />} />
             <Route path='/expenses' element={<Navigate to="/login" />} />
+            <Route path='/expenses-chart' element={<Navigate to="/login" />} />
           </>
         )}
       </Routes>

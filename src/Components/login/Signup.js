@@ -59,8 +59,10 @@ export default function Signup() {
     }
     return (
         <Container className="mt-4">
+        
         <Row className="justify-content-center">
         <Col xs={12} md={8} lg={6}>
+        <div className='signup'>
         <div className="text-center mb-4">
                 <h2>Signup</h2>
                 </div>
@@ -80,8 +82,10 @@ export default function Signup() {
                <div className="text-center mt-3">
                 <Button variant='primary' onClick={handleSignUp}>Signup</Button>
                 </div>
+                </div>
       </Col>
       </Row>
+    
       </Container>
     )
 }

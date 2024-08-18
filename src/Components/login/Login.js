@@ -23,7 +23,6 @@ export default function Login() {
                 .then(data => {
                     localStorage.setItem("token",data.token);
                     localStorage.setItem("emailId",data.emailId);
-                    alert(data.msg);
                     navigate('/expenses');                  
                 })
                 .catch(error => {
@@ -35,8 +34,8 @@ export default function Login() {
         <Container className="mt-4">
              <Row className="justify-content-center">
              <Col xs={12} md={8} lg={6}>
-        {/* <div className='login-page'>
-            <div className='login'> */}
+       
+            <div className='login'>
              <div className="text-center mb-4">
                 <h2>Login</h2>
                 </div>
@@ -60,8 +59,8 @@ export default function Login() {
                 <div className="text-center mt-3">
                 <Button variant='success' onClick={(e) => handleLogin()}>Login</Button>
                 </div>
-            {/* </div>
-        </div> */}
+            </div>
+    
         </Col>
         </Row>
         </Container>

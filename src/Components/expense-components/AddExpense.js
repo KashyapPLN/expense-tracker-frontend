@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import './expense.css';
 
 export default function AddExpense() {
   const [amount, setAmount] = useState('');
@@ -47,8 +48,9 @@ export default function AddExpense() {
 
   return (
     <Container className="mt-4">
+        <div className='add-expense'>
       <h2 className="text-center">Add New Expense</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>    
       <Row className="mb-3">
           <Col xs={12} md={6}>
             <Form.Group controlId="formCustomCategory">
@@ -134,7 +136,9 @@ export default function AddExpense() {
             Add Expense
           </Button>
         </div>
+      
       </Form>
+      </div>
     </Container>
   );
 }

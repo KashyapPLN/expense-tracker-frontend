@@ -104,7 +104,7 @@ export default function Expenses() {
       <h2 className="text-center">Expense List</h2>
 
       {/* Expense Summary */}
-      <Row className="mb-4">
+      <Row className="mb-4 mt-4">
         <Col md={6}>
           <Card>
             <Card.Body>

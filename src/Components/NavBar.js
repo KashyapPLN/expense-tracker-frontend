@@ -3,7 +3,7 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBar({ handleLogout }) {
-  const navigate = useNavigate();
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
       <Container>
@@ -21,6 +21,9 @@ export default function NavBar({ handleLogout }) {
             </Nav.Link>
             <Nav.Link as={Link} to="/expenses">
               Expenses
+            </Nav.Link>
+            <Nav.Link as={Link} to="/expenses-chart">
+              Charts
             </Nav.Link>
           </Nav>
           <Button variant="outline-light" onClick={handleLogout}>
