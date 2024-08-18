@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     function handleLogin() {
         if (emailId !== '' && password !== '') {
+            setLoading(true);
             const req = {
                 emailId,
                 password
@@ -23,13 +25,24 @@ export default function Login() {
                 .then(data => {
                     localStorage.setItem("token",data.token);
                     localStorage.setItem("emailId",data.emailId);
+                    setLoading(false);
                     navigate('/expenses');                  
                 })
                 .catch(error => {
+                    setLoading(false);
+                    Alert("login failed, please try again!")
                     console.error('Error:', error);
                 });
         }
     }
+
+    if (loading) {
+        return (
+          <Container className="mt-4 text-center">
+            <Spinner animation="border" />
+          </Container>
+        );
+      }
     return (
         <Container className="mt-4">
              <Row className="justify-content-center">

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './register.css';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     function handleSignUp() {
         if (password !== '' && confirmPassword !== '' && password === confirmPassword) {
+            setLoading(true);
             const req = {
                 emailId,
                 password
@@ -24,10 +26,12 @@ export default function Signup() {
                 body: JSON.stringify(req)
             }).then(response => response.json())
                 .then(data => {
+                    setLoading(false);
                     alert(data.msg);
                     navigate('/login');
                 })
                 .catch(error => {
+                    setLoading(false);
                     console.error('Error:', error);
                 });
         } else {
@@ -53,10 +57,18 @@ export default function Signup() {
         }
 
         if (message) {
-            alert(message);
+            Alert(message);
         }
 
     }
+
+    if (loading) {
+        return (
+          <Container className="mt-4 text-center">
+            <Spinner animation="border" />
+          </Container>
+        );
+      }
     return (
         <Container className="mt-4">
         
