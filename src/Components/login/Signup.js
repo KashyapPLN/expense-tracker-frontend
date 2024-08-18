@@ -16,7 +16,7 @@ export default function Signup() {
             }
             console.log(req);
 
-            fetch('http://localhost:4000/signup', {
+            fetch('https://expense-tracker-backend-dp7v.onrender.com/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

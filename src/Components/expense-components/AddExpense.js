@@ -22,7 +22,7 @@ export default function AddExpense() {
     const expenseData = { amount, category, date, description,userId};
     console.log(expenseData);
  if(token){
-    fetch('http://localhost:4000/expense/add', {
+    fetch('https://expense-tracker-backend-dp7v.onrender.com/expense/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -41,8 +41,8 @@ export default function AddExpense() {
   const handleAddCategory = () => {
     if (customCategory && !categories.includes(customCategory)) {
       setCategories([...categories, customCategory]);
-      setCategory(customCategory); // Set the newly added category as selected
-      setCustomCategory(''); // Clear the input field
+      setCategory(customCategory);
+      setCustomCategory('');
     }
   };
 

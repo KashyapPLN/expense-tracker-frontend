@@ -17,7 +17,7 @@ export default function Charts() {
   useEffect(() => {
     const fetchExpenses = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/expense/${userId}`);
+        const response = await fetch(`https://expense-tracker-backend-dp7v.onrender.com/expense/${userId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch expenses');
         }

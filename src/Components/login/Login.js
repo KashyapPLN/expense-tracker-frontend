@@ -13,7 +13,7 @@ export default function Login() {
                 password
             }
             console.log(req);
-            fetch('http://localhost:4000/login', {
+            fetch('https://expense-tracker-backend-dp7v.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       {token && <NavBar handleLogout={handleLogout} />}
       <Routes>
-        {/* Protected Routes */}
+    
         {token ? (
 
           <>
@@ -36,11 +36,11 @@ function App() {
           </>
         ) : (
           <>
-            {/* Public Routes */}
+          
             <Route path='/register' element={<Signup />} />
             <Route path='/login' element={<Login />} />
             <Route path='/' element={<Navigate to="/register" />} />
-            {/* Redirect protected routes to register/login */}
+      
             <Route path='/profile' element={<Navigate to="/login" />} />
             <Route path='/add' element={<Navigate to="/login" />} />
             <Route path='/expenses' element={<Navigate to="/login" />} />

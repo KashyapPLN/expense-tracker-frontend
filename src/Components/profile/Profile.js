@@ -22,7 +22,7 @@ export default function Profile() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:4000/user-data/${localStorage.getItem("emailId")}`, {
+        fetch(`https://expense-tracker-backend-dp7v.onrender.com/user-data/${localStorage.getItem("emailId")}`, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -54,7 +54,7 @@ export default function Profile() {
     const handleSubmit = () => {
         if (formData.name && formData.age && formData.mobile && formData.dob && formData.gender) {
             console.log(formData);
-            fetch(`http://localhost:4000/user-data/${localStorage.getItem("emailId")}`, {
+            fetch(`https://expense-tracker-backend-dp7v.onrender.com/user-data/${localStorage.getItem("emailId")}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
