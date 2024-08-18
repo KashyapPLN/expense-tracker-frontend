@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Form, Container, Row, Col, Spinner, Alert, Card } from 'react-bootstrap';
+import ExportData from '../ExportData';
 
 export default function Expenses() {
   const [expenses, setExpenses] = useState([]);
@@ -102,16 +103,16 @@ export default function Expenses() {
   return (
     <Container className="mt-4">
       <h2 className="text-center">Expense List</h2>
-
+      <ExportData expenses={expenses}/>
       {/* Expense Summary */}
       <Row className="mb-4 mt-4">
-        <Col md={6}>
+        <Col md={6}>       
           <Card>
             <Card.Body>
               <Card.Title>Total Expenses This Month</Card.Title>
               <Card.Text>₹{monthlyTotal.toFixed(2)}</Card.Text>
             </Card.Body>
-          </Card>
+          </Card>         
         </Col>
         <Col md={6}>
           <Card>
