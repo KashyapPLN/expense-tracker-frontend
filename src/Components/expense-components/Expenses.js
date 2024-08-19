@@ -24,7 +24,7 @@ export default function Expenses() {
         }
         const data = await response.json();
         setExpenses(data);
-        setFilteredExpenses(data); 
+        setFilteredExpenses(data);
         calculateSummary(data);
         setLoading(false);
       } catch (err) {
@@ -103,16 +103,16 @@ export default function Expenses() {
   return (
     <Container className="mt-4">
       <h2 className="text-center">Expense List</h2>
-      <ExportData expenses={expenses}/>
+      <ExportData expenses={expenses} />
       {/* Expense Summary */}
       <Row className="mb-4 mt-4">
-        <Col md={6}>       
+        <Col md={6}>
           <Card>
             <Card.Body>
               <Card.Title>Total Expenses This Month</Card.Title>
               <Card.Text>₹{monthlyTotal.toFixed(2)}</Card.Text>
             </Card.Body>
-          </Card>         
+          </Card>
         </Col>
         <Col md={6}>
           <Card>
@@ -207,9 +207,9 @@ export default function Expenses() {
           {filteredExpenses.length > 0 ? (
             filteredExpenses.map((expense, index) => (
               <tr key={index}>
-                <td>{new Date(expense.date).getDate().toString().padStart(2, '0') + '-' + 
-   (new Date(expense.date).getMonth() + 1).toString().padStart(2, '0') + '-' + 
-   new Date(expense.date).getFullYear()}</td>
+                <td>{new Date(expense.date).getDate().toString().padStart(2, '0') + '-' +
+                  (new Date(expense.date).getMonth() + 1).toString().padStart(2, '0') + '-' +
+                  new Date(expense.date).getFullYear()}</td>
                 <td>{expense.category}</td>
                 <td>{expense.description}</td>
                 <td>₹{expense.amount.toFixed(2)}</td>
