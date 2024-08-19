@@ -207,7 +207,9 @@ export default function Expenses() {
           {filteredExpenses.length > 0 ? (
             filteredExpenses.map((expense, index) => (
               <tr key={index}>
-                <td>{expense.date}</td>
+                <td>{new Date(expense.date).getDate().toString().padStart(2, '0') + '-' + 
+   (new Date(expense.date).getMonth() + 1).toString().padStart(2, '0') + '-' + 
+   new Date(expense.date).getFullYear()}</td>
                 <td>{expense.category}</td>
                 <td>{expense.description}</td>
                 <td>₹{expense.amount.toFixed(2)}</td>
