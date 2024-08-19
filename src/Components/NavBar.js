@@ -13,11 +13,11 @@ export default function NavBar({ handleLogout }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/add">
-              Add Expense
-            </Nav.Link>
             <Nav.Link as={Link} to="/profile">
               Profile
+            </Nav.Link>
+            <Nav.Link as={Link} to="/add">
+              Add Expense
             </Nav.Link>
             <Nav.Link as={Link} to="/expenses">
               Expenses
